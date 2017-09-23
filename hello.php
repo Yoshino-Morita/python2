@@ -1,16 +1,11 @@
 <?php
 
-$genre = "映画\n";
-$title = "時をかける少女\n";
-$review = "あああ\n";
+$genre = "映画";
+$title = "時をかける少女";
+$review = "あああ";
 $line = "----------------";
 
-echo "ジャンル：".$genre;
-echo $line;
-echo "タイトル:".$title;
-echo $line;
-echo "感想：";
-echo $review;
-echo $line;
-
+echo "ジャンル：{$genre}\n{$line}\n";
+echo "タイトル:{$title}\n{$line}\n";
+echo "感想：\n{$review}\n{$line}\n";
 ?>
