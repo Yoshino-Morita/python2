@@ -21,9 +21,10 @@ function post_review($a_posts){
 }
 
 function read_reviews(){
-
+//レビューを読む
 }
 function end_program(){
+//アプリを終了する
  exit;
 }
 function exception(){
