@@ -20,8 +20,22 @@ function post_review($a_posts){
   return $a_posts;
 }
 
-function read_reviews(){
-//レビューを読む
+function read_reviews($a_posts){
+  echo "見たいレビューの番号を入力してください";
+  $number = 0 ;
+  foreach ($a_posts as $review) {
+    echo "[$number]"."$review['title']";
+    $number = $number + 1;
+  }
+  $input = intval(trim(fgets(STDIN)));
+
+  //レビューの取得
+  $post = $a_posts[$input];
+
+  //レビューの描画
+  echo "ジャンル：{$post['genre']}\n{$line}\n";
+  echo "タイトル:{$post['title']}\n{$line}\n";
+  echo "感想：\n{$post['review']}\n{$line}\n";
 }
 function end_program(){
 //アプリを終了する
@@ -34,16 +48,16 @@ function exception(){
 $posts = array();
 //メニューの表示
 while(true){
-  echo "レビュー数:0";
+  echo "レビュー数:" . count($posts),PHP_EOL;
   echo "[0]レビューを書く\n";
   echo "[1]レビューを読む\n";
   echo "[2]アプリを終了する\n";
   $input = intval(trim(fgets(STDIN)));
 
   if ($input === 0){
-   post_review($posts);
+   $posts = post_review($posts);
   }elseif($input === 1){
-    read_reviews();
+    read_reviews($posts);
   }elseif($input === 2){
     end_program();
   }else{
