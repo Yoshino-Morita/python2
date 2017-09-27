@@ -21,12 +21,12 @@ function post_review($a_posts){
 }
 
 function read_reviews($a_posts){
-  echo "見たいレビューの番号を入力してください";
   $number = 0 ;
   foreach ($a_posts as $review) {
-    echo "[$number]"."$review['title']";
+    echo "{$number}:{$review['title']}\n";
     $number = $number + 1;
   }
+  echo "見たいレビューの番号を入力してください";
   $input = intval(trim(fgets(STDIN)));
 
   //レビューの取得
