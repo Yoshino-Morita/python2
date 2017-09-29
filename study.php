@@ -1,7 +1,13 @@
 <?php
 class Review{
+ private static $review_count = 0;
+
  public static function get_review_count(){
-  return 0 ;
+  return Review::$review_count ;
+ }
+
+ public function __construct(){
+  Review::$review_count = Review::$review_count + 1;
  }
 
  public function show_review(){
@@ -14,6 +20,9 @@ class Review{
   echo "-----------------------\n";
  }
 }
+
+echo Review::get_review_count(),PHP_EOL;
+
 $review = new Review();
 $review->show_review();
 
